@@ -1,25 +1,10 @@
-# India & Michaël Wedding Website
+# India & Michaël Wedding Website — Live RSVP Version
 
-This is Version 1.0 of the minimalist wedding website.
+This version has the Google Apps Script endpoint connected.
 
-## How to edit the text
+Upload these files to GitHub:
+- index.html
+- styles.css
+- README.md
 
-Open `index.html` in a text editor and search for the wording you want to replace.
-
-## RSVP links
-
-In `index.html`, replace:
-
-- `BRUNCH_RSVP_LINK_HERE`
-- `SUNDAY_RSVP_LINK_HERE`
-
-with the two Tally or Google Form links.
-
-## Bank details
-
-The gift wording is included, but bank details are not displayed in this version.
-If you want them included, add them inside the Gifts section.
-
-## Hosting
-
-Upload both files to GitHub Pages, Netlify, or Cloudflare Pages.
+Then test the three RSVP forms on the live website and check the Google Sheet.

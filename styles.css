@@ -58,6 +58,20 @@ a:hover {
   color: var(--muted);
 }
 
+.family-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 28px;
+  width: min(760px, 100%);
+  margin: 0 auto;
+  text-align: left;
+}
+
+.family-row span:last-child {
+  text-align: right;
+}
+
 .invitation-line {
   margin-top: 22px;
   font-size: 1rem;
@@ -253,6 +267,18 @@ li {
     letter-spacing: 0.14em;
   }
 
+
+  .family-row {
+    gap: 12px;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    line-height: 1.45;
+  }
+
+  .family-row span {
+    flex: 1;
+  }
+
   .invitation-line {
     font-size: 0.95rem;
   }
@@ -351,4 +377,101 @@ li {
   .nav {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* Integrated RSVP forms */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.wedding-form {
+  border: 1px solid var(--line);
+  padding: 34px;
+  background: #fff;
+}
+
+.wedding-form label {
+  display: block;
+  margin: 24px 0;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
+}
+
+.wedding-form input,
+.wedding-form textarea,
+.wedding-form select {
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  border-bottom: 1px solid var(--text);
+  border-radius: 0;
+  background: transparent;
+  padding: 11px 0;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.wedding-form textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.wedding-form input:focus,
+.wedding-form textarea:focus,
+.wedding-form select:focus {
+  outline: none;
+  border-bottom-width: 2px;
+}
+
+.wedding-form button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 14px 24px;
+  border: 1px solid var(--text);
+  background: var(--text);
+  color: #fff;
+  font-family: Inter, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.wedding-form button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.form-message {
+  min-height: 1.6em;
+  margin-top: 18px;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 760px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .wedding-form {
+    padding: 24px 22px;
+  }
+
+  .wedding-form button {
+    width: 100%;
+    text-align: center;
+    padding: 15px 18px;
+  }
+}
+
+
+.standalone-form {
+  max-width: 680px;
 }

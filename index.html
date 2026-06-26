@@ -14,7 +14,7 @@
 <body>
   <header class="hero" id="top">
     <div class="hero-inner">
-      <p class="families">Alice Oschinsky, Jean-Pierre Bellay and Chantal Kawa</p>
+      <div class="families family-row"><span>Alice Oschinsky &amp; Jean-Pierre Bellay</span><span>Chantal Kawa</span></div>
       <p class="invitation-line">are overjoyed to invite you to the celebration of</p>
 
       <h1>
@@ -95,44 +95,95 @@
         The brunch and the Sunday celebration have separate RSVPs, so please complete both forms if you are joining us for both events.
       </p>
 
-      <div class="rsvp-grid">
-        <article>
-          <h3>Brunch RSVP</h3>
-          <ul>
-            <li>Names of you and your family members, if applicable</li>
-            <li>Total number attending</li>
-            <li>Are your children coming? If yes, how old are they?</li>
-          </ul>
-          <a class="button" href="BRUNCH_RSVP_LINK_HERE" target="_blank" rel="noopener">RSVP for Brunch</a>
-        </article>
+      <div class="form-grid">
+        <form class="wedding-form" id="brunch-form">
+          <input type="hidden" name="event" value="Family Brunch">
+          <h3>Family Brunch RSVP</h3>
+          <p class="small-copy">Saturday, 19 December 2026 · White City House</p>
 
-        <article>
+          <label>
+            Names of you and your family members, if applicable
+            <textarea name="names" required></textarea>
+          </label>
+
+          <label>
+            Total number attending
+            <input type="number" name="total_attending" min="0" required>
+          </label>
+
+          <label>
+            Are your children coming?
+            <select name="children_coming" required>
+              <option value="">Please choose</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </label>
+
+          <label>
+            If yes, how old are they?
+            <textarea name="children_ages"></textarea>
+          </label>
+
+          <button type="submit">Send Brunch RSVP</button>
+          <p class="form-message" aria-live="polite"></p>
+        </form>
+
+        <form class="wedding-form" id="sunday-form">
+          <input type="hidden" name="event" value="Chuppah & Celebration">
           <h3>Sunday RSVP</h3>
-          <ul>
-            <li>Name of you and your partner, if applicable</li>
-            <li>Total number of guests</li>
-            <li>Dietary requirements</li>
-          </ul>
+          <p class="small-copy">Sunday, 20 December 2026 · Claridge’s</p>
+
+          <label>
+            Name of you and your partner, if applicable
+            <textarea name="names" required></textarea>
+          </label>
+
+          <label>
+            Total number of guests
+            <input type="number" name="total_guests" min="0" required>
+          </label>
+
+          <label>
+            Dietary requirements
+            <textarea name="dietary_requirements"></textarea>
+          </label>
+
           <p class="small-copy">
             Please note that the meat will be kosher and will respect not being cooked or accompanied by dairy;
             however, it is not certified kosher catering.
           </p>
-          <a class="button" href="SUNDAY_RSVP_LINK_HERE" target="_blank" rel="noopener">RSVP for Sunday</a>
-        </article>
+
+          <button type="submit">Send Sunday RSVP</button>
+          <p class="form-message" aria-live="polite"></p>
+        </form>
       </div>
     </section>
 
-    <section class="section narrow">
+    <section class="section narrow" id="questions">
       <p class="eyebrow">A few questions for you…</p>
       <h2>Help us plan the weekend</h2>
-      <ul class="simple-list">
-        <li>When are you due to arrive and leave London?</li>
-        <li>Three songs you love to dance to.</li>
-      </ul>
-      <p class="small-copy">
-        We are asking so we can plan a few informal get-togethers for anyone arriving a little early or staying a little longer,
+      <p class="section-intro">
+        This is so we can plan a few informal get-togethers for anyone arriving a little early or staying a little longer,
         and so the dance floor feels very much like us.
       </p>
+
+      <form class="wedding-form standalone-form" id="questions-form">
+        <input type="hidden" name="event" value="A Few Questions">
+
+        <label>
+          When are you due to arrive and leave London?
+          <textarea name="arrival_departure" required></textarea>
+        </label>
+
+        <label>
+          Three songs you love to dance to
+          <textarea name="songs" required></textarea>
+        </label>
+
+        <button type="submit">Send Answers</button>
+        <p class="form-message" aria-live="polite"></p>
+      </form>
     </section>
 
     <section class="section" id="stay">
@@ -213,5 +264,45 @@
       observer.observe(section);
     });
   </script>
+
+  <script>
+    const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzvnYLsZz8LOocTT6uA-dwotoRnu-UbIKuO2Ejn7HxrgRQ2TqnaU3CmBM1Y8bTqskwSFA/exec";
+
+    async function sendRSVP(form) {
+      const message = form.querySelector(".form-message");
+      const button = form.querySelector("button");
+      message.textContent = "";
+      button.disabled = true;
+      button.textContent = "Sending…";
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.submitted_at = new Date().toISOString();
+
+      try {
+        await fetch(RSVP_ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(data)
+        });
+
+        form.reset();
+        message.textContent = "Thank you — your RSVP has been sent.";
+      } catch (error) {
+        message.textContent = "Something went wrong. Please try again or email us.";
+      } finally {
+        button.disabled = false;
+        button.textContent = form.id === "brunch-form" ? "Send Brunch RSVP" : (form.id === "sunday-form" ? "Send Sunday RSVP" : "Send Answers");
+      }
+    }
+
+    document.querySelectorAll(".wedding-form").forEach((form) => {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        sendRSVP(form);
+      });
+    });
+  </script>
+
 </body>
 </html>
