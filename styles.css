@@ -1,0 +1,354 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --text: #111;
+  --muted: #666;
+  --line: #e9e5df;
+  --soft: #faf8f5;
+  --max: 920px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--text);
+  font-family: "Libre Baskerville", Georgia, serif;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+a:hover {
+  opacity: 0.65;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 24px;
+  text-align: center;
+}
+
+.hero-inner {
+  width: min(760px, 100%);
+}
+
+.families,
+.eyebrow,
+.date-place,
+.event-date,
+.note-title {
+  font-family: Inter, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.invitation-line {
+  margin-top: 22px;
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 {
+  margin: 38px 0 28px;
+  font-size: clamp(3.1rem, 8vw, 6.3rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+h1 span {
+  display: block;
+  font-size: 0.45em;
+  margin: 0.2em 0;
+}
+
+h2 {
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin-bottom: 28px;
+}
+
+h3 {
+  font-size: 1.45rem;
+  margin-bottom: 14px;
+}
+
+.intro {
+  max-width: 650px;
+  margin: 34px auto 0;
+  font-size: 1.08rem;
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 44px;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav a {
+  border-bottom: none;
+}
+
+.scroll-cue {
+  display: inline-block;
+  margin-top: 66px;
+  font-size: 1.6rem;
+  border: 0;
+  color: var(--muted);
+}
+
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 104px 28px;
+  border-top: 1px solid var(--line);
+}
+
+.section.narrow {
+  max-width: 760px;
+}
+
+.section-intro {
+  max-width: 680px;
+  font-size: 1.06rem;
+  margin-bottom: 42px;
+}
+
+.event-grid,
+.rsvp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.event-card,
+.rsvp-grid article {
+  border: 1px solid var(--line);
+  padding: 34px;
+  background: #fff;
+}
+
+.time {
+  font-family: Inter, Arial, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.note {
+  margin: 28px 0;
+  padding: 22px 24px;
+  background: var(--soft);
+  border-left: 3px solid var(--text);
+}
+
+.note p {
+  margin: 0;
+}
+
+.note p + p {
+  margin-top: 10px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 13px 24px;
+  border: 1px solid var(--text);
+  font-family: Inter, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin: 9px 0;
+}
+
+.small-copy {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.simple-list {
+  font-size: 1.06rem;
+}
+
+.london-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.london-grid a {
+  display: block;
+  border: 1px solid var(--line);
+  padding: 18px 20px;
+  background: #fff;
+}
+
+.final {
+  text-align: center;
+  padding-bottom: 130px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding: 34px 20px;
+  }
+
+  .families,
+  .eyebrow,
+  .date-place,
+  .event-date,
+  .note-title {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+  }
+
+  .invitation-line {
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 17vw, 4.8rem);
+    line-height: 1.02;
+    margin: 30px 0 24px;
+  }
+
+  h2 {
+    font-size: clamp(2.35rem, 12vw, 3.4rem);
+    line-height: 1.08;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+    margin-top: 28px;
+  }
+
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 38px;
+    font-size: 0.72rem;
+  }
+
+  .nav a {
+    border: 1px solid var(--line);
+    padding: 10px 8px;
+  }
+
+  .scroll-cue {
+    margin-top: 44px;
+  }
+
+  .section {
+    padding: 72px 20px;
+  }
+
+  .event-grid,
+  .rsvp-grid,
+  .london-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .event-card,
+  .rsvp-grid article {
+    padding: 24px 22px;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+    padding: 15px 18px;
+  }
+
+  .london-grid a {
+    padding: 16px 18px;
+  }
+
+  .note {
+    padding: 20px;
+  }
+
+  ul {
+    padding-left: 18px;
+  }
+
+  .final {
+    padding-bottom: 92px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  h1 {
+    font-size: clamp(2.7rem, 16vw, 4rem);
+  }
+
+  .section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .nav {
+    grid-template-columns: 1fr;
+  }
+}
