@@ -3,7 +3,7 @@
 This version has the Google Apps Script endpoint connected.
 
 Upload these files to GitHub:
-- index.html
+- index (1).html
 - styles.css
 - README.md
 
