@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>India & Michaël — London, 19–20 December 2026</title>
+  <meta name="description" content="Wedding weekend for India Bellay Oschinsky and Michaël Kitai in London, 19–20 December 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="families family-row"><span>Alice Oschinsky &amp; Jean-Pierre Bellay</span><span>Chantal Kawa</span></div>
+      <p class="invitation-line">are overjoyed to invite you to the celebration of</p>
+
+      <h1>
+        India Bellay Oschinsky
+        <span>&amp;</span>
+        Michaël Kitai
+      </h1>
+
+      <p class="date-place">London · 19–20 December 2026</p>
+
+      <p class="intro">
+        Join us for a festive weekend in London as we celebrate our wedding.
+        We cannot wait to gather our favourite people for a once in a lifetime weekend.
+      </p>
+
+      <nav class="nav">
+        <a href="#weekend">Weekend</a>
+        <a href="#rsvp">RSVP</a>
+        <a href="#stay">Stay</a>
+        <a href="#london">London</a>
+      </nav>
+
+      <a class="scroll-cue" href="#weekend" aria-label="Scroll to weekend details">↓</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="weekend">
+      <p class="eyebrow">The Weekend</p>
+      <h2>Two days in London</h2>
+      <p class="section-intro">
+        We would love to celebrate with you across the weekend: a child-friendly family brunch on Saturday,
+        followed by our chuppah and celebration on Sunday evening.
+      </p>
+
+      <div class="event-grid">
+        <article class="event-card">
+          <p class="event-date">Saturday, 19 December 2026</p>
+          <h3>Family Brunch</h3>
+          <p class="time">12:00pm – 4:00pm</p>
+          <p>
+            <strong>White City House</strong><br>
+            2 Television Centre, 101 Wood Lane,<br>
+            London W12 7FR
+          </p>
+          <p>
+            Saturday brunch is very much child-friendly, with entertainment to keep little ones happily busy
+            while they make wonderful memories—and perhaps even a few surprises for us…
+          </p>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=White+City+House+2+Television+Centre+101+Wood+Lane+London+W12+7FR" target="_blank" rel="noopener">Open map</a></p>
+        </article>
+
+        <article class="event-card">
+          <p class="event-date">Sunday, 20 December 2026</p>
+          <h3>Chuppah &amp; Celebration</h3>
+          <p class="time">4:30pm – 1:00am</p>
+          <p>
+            <strong>Claridge’s</strong><br>
+            Brook Street, Mayfair,<br>
+            London W1K 4HR
+          </p>
+          <div class="note">
+            <p class="note-title">A little note</p>
+            <p>
+              As much as we adore your little ones, Sunday’s celebration will be for grown-ups only.
+              We have included babysitting links below.
+            </p>
+          </div>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=Claridge%27s+Brook+Street+Mayfair+London+W1K+4HR" target="_blank" rel="noopener">Open map</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="rsvp">
+      <p class="eyebrow">RSVP</p>
+      <h2>Please reply for each event</h2>
+      <p class="section-intro">
+        The brunch and the Sunday celebration have separate RSVPs, so please complete both forms if you are joining us for both events.
+      </p>
+
+      <div class="form-grid">
+        <form class="wedding-form" id="brunch-form">
+          <input type="hidden" name="event" value="Family Brunch">
+          <h3>Family Brunch RSVP</h3>
+          <p class="small-copy">Saturday, 19 December 2026 · White City House</p>
+
+          <label>
+            Names of you and your family members, if applicable
+            <textarea name="names" required></textarea>
+          </label>
+
+          <label>
+            Total number attending
+            <input type="number" name="total_attending" min="0" required>
+          </label>
+
+          <label>
+            Are your children coming?
+            <select name="children_coming" required>
+              <option value="">Please choose</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </label>
+
+          <label>
+            If yes, how old are they?
+            <textarea name="children_ages"></textarea>
+          </label>
+
+          <button type="submit">Send Brunch RSVP</button>
+          <p class="form-message" aria-live="polite"></p>
+        </form>
+
+        <form class="wedding-form" id="sunday-form">
+          <input type="hidden" name="event" value="Chuppah & Celebration">
+          <h3>Sunday RSVP</h3>
+          <p class="small-copy">Sunday, 20 December 2026 · Claridge’s</p>
+
+          <label>
+            Name of you and your partner, if applicable
+            <textarea name="names" required></textarea>
+          </label>
+
+          <label>
+            Total number of guests
+            <input type="number" name="total_guests" min="0" required>
+          </label>
+
+          <label>
+            Dietary requirements
+            <textarea name="dietary_requirements"></textarea>
+          </label>
+
+          <p class="small-copy">
+            Please note that the wedding meal will not be catered by a kosher-certified caterer.
+          </p>
+
+          <button type="submit">Send Sunday RSVP</button>
+          <p class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section narrow" id="questions">
+      <p class="eyebrow">A few questions for you…</p>
+      <h2>Help us plan the weekend</h2>
+      <p class="section-intro">
+        This is so we can plan a few informal get-togethers for anyone arriving a little early or staying a little longer,
+        and so the dance floor feels very much like us.
+      </p>
+
+      <form class="wedding-form standalone-form" id="questions-form">
+        <input type="hidden" name="event" value="A Few Questions">
+
+        <label>
+          When are you due to arrive and leave London?
+          <textarea name="arrival_departure" required></textarea>
+        </label>
+
+        <label>
+          Three songs you love to dance to
+          <textarea name="songs" required></textarea>
+        </label>
+
+        <button type="submit">Send Answers</button>
+        <p class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="section" id="stay">
+      <p class="eyebrow">Stay</p>
+      <h2>Durrants Hotel</h2>
+      <p class="section-intro">
+        After scouring London for something sweet and typical, we would love to suggest Durrants Hotel in Marylebone.
+      </p>
+      <p>
+        One of the last family-owned hotels in the area, you will be warmly greeted and surrounded in a quintessentially
+        British design. We have arranged rates for our guests at <strong>£235 a night</strong> excluding breakfast.
+      </p>
+      <p>
+        Please feel free to contact <strong>Neesa</strong> at
+        <a href="mailto:Salesoffice@DurrantsHotel.co.uk">Salesoffice@DurrantsHotel.co.uk</a>
+        to secure a room.
+      </p>
+      <p><a href="https://www.durrantshotel.co.uk/" target="_blank" rel="noopener">Visit Durrants Hotel</a></p>
+    </section>
+
+    <section class="section" id="london">
+      <p class="eyebrow">Our London</p>
+      <h2>A few places we love</h2>
+      <div class="london-grid">
+        <a href="https://www.sadlerswells.com/" target="_blank" rel="noopener">Sadler’s Wells</a>
+        <a href="https://www.tate.org.uk/visit/tate-modern" target="_blank" rel="noopener">Tate Modern</a>
+        <a href="https://www.visitlondon.com/things-to-do/place/277638-marylebone" target="_blank" rel="noopener">Walking around Marylebone</a>
+        <a href="https://panzers.co.uk/" target="_blank" rel="noopener">Panzer’s for delicatessen</a>
+        <a href="https://luca.restaurant/" target="_blank" rel="noopener">Luca for our local</a>
+        <a href="https://www.exmouth.london/" target="_blank" rel="noopener">Exmouth Market</a>
+        <a href="https://www.visitlondon.com/things-to-do/place/277311-shoreditch" target="_blank" rel="noopener">Shoreditch for shopping and meandering</a>
+        <a href="https://burlesquethemusical.com/" target="_blank" rel="noopener">Burlesque the Musical</a>
+        <a href="https://www.fischers.co.uk/" target="_blank" rel="noopener">Fischer’s</a>
+        <a href="https://www.the-connaught.co.uk/restaurants-bars/connaught-bar/" target="_blank" rel="noopener">A drink at The Connaught</a>
+        <a href="https://www.carnaby.co.uk/" target="_blank" rel="noopener">Christmas on Carnaby Street</a>
+      </div>
+    </section>
+
+    <section class="section narrow">
+      <p class="eyebrow">Babysitting</p>
+      <h2>A practical note</h2>
+      <p>
+        For guests joining us with children for the weekend, we know childcare can take a little planning.
+        We have included a babysitting link below.
+      </p>
+      <p>
+        Pro tip: book two babysitters in case one of them falls through last minute.
+      </p>
+      <p><a href="https://joinbubble.com/" target="_blank" rel="noopener">Bubble babysitting</a></p>
+    </section>
+
+    <section class="section narrow">
+      <p class="eyebrow">Gifts</p>
+      <h2>With Love</h2>
+      <p>
+        Your presence is the greatest gift we could ask for. If you would like to mark the occasion, we would love your
+        help towards a piece of artwork that we will enjoy for generations to come—and always think of the wonderful
+        people who helped make it part of our home.
+      </p>
+      <p>
+        <strong>Michaël Kitai</strong><br>
+        LU73 0030 2914 2167 0000
+      </p>
+    </section>
+
+    <section class="section final">
+      <h2>We cannot wait to celebrate with you.</h2>
+      <p>India &amp; Michaël</p>
+      <p><a href="#top">Back to top</a></p>
+    </section>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.section').forEach((section) => {
+      section.classList.add('fade-in');
+      observer.observe(section);
+    });
+  </script>
+
+  <script>
+    const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzvnYLsZz8LOocTT6uA-dwotoRnu-UbIKuO2Ejn7HxrgRQ2TqnaU3CmBM1Y8bTqskwSFA/exec";
+
+    async function sendRSVP(form) {
+      const message = form.querySelector(".form-message");
+      const button = form.querySelector("button");
+      message.textContent = "";
+      button.disabled = true;
+      button.textContent = "Sending…";
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.submitted_at = new Date().toISOString();
+
+      try {
+        await fetch(RSVP_ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(data)
+        });
+
+        form.reset();
+        message.textContent = "Thank you — your RSVP has been sent.";
+      } catch (error) {
+        message.textContent = "Something went wrong. Please try again or email us.";
+      } finally {
+        button.disabled = false;
+        button.textContent = form.id === "brunch-form" ? "Send Brunch RSVP" : (form.id === "sunday-form" ? "Send Sunday RSVP" : "Send Answers");
+      }
+    }
+
+    document.querySelectorAll(".wedding-form").forEach((form) => {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        sendRSVP(form);
+      });
+    });
+  </script>
+
+</body>
+</html>
