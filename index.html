@@ -9,9 +9,74 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body.locked header,
+    body.locked main {
+      display: none;
+    }
+
+    body:not(.locked) #password-gate {
+      display: none;
+    }
+
+    .password-gate {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .password-box {
+      max-width: 520px;
+    }
+
+    .password-box h1 {
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .password-box input {
+      width: 100%;
+      margin-top: 24px;
+      padding: 14px;
+      border: 1px solid #111;
+      font: inherit;
+      text-align: center;
+    }
+
+    .password-box button {
+      margin-top: 18px;
+      padding: 12px 28px;
+      border: 1px solid #111;
+      background: #111;
+      color: #fff;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    #password-error {
+      margin-top: 16px;
+      color: #777;
+    }
+  </style>
 </head>
 
-<body>
+<body class="locked">
+  <div id="password-gate" class="password-gate">
+    <div class="password-box">
+      <h1>India &amp; Michaël</h1>
+      <p>Please enter the password from your invitation.</p>
+      <form id="password-form">
+        <input type="password" id="password-input" placeholder="Password" autocomplete="off">
+        <button type="submit">Enter</button>
+        <p id="password-error"></p>
+      </form>
+    </div>
+  </div>
+
   <header class="hero" id="top">
     <div class="hero-inner">
       <div class="families family-row"><span>Alice Oschinsky &amp; Jean-Pierre Bellay</span><span>Chantal Kawa</span></div>
@@ -34,6 +99,7 @@
         <a href="#weekend">Weekend</a>
         <a href="#rsvp">RSVP</a>
         <a href="#stay">Stay</a>
+        <a href="#travel">Travel</a>
         <a href="#london">London</a>
       </nav>
 
@@ -78,7 +144,7 @@
             London W1K 4HR
           </p>
           <p><em>Please ask your driver to bring you to the <strong>Claridge’s Ballroom entrance</strong>, as it is separate from the main hotel entrance.</em></p>
-          <p><a href="https://www.google.com/maps/place/Claridge's+Ballroom+Entrance" target="_blank" rel="noopener">View the entrance on the map</a></p>
+          <p><a href="https://maps.app.goo.gl/bn7PG5fTo6vtjqwQA" target="_blank" rel="noopener">View the entrance on the map</a></p>
           <div class="note">
             <p class="note-title">A little note</p>
             <p>
@@ -95,8 +161,7 @@
       <h2>Please reply for each event</h2>
       <p class="section-intro">
         The brunch and the Sunday celebration have separate RSVPs, so please complete both forms if you are joining us for both events.
-        <br><br>
-        <strong>Kindly RSVP by 1 August 2026.</strong>
+        <br><br><strong>Kindly RSVP by 1 August 2026.</strong>
       </p>
 
       <div class="form-grid">
@@ -164,8 +229,7 @@
           </label>
 
           <p class="small-copy">
-            Please note that the wedding meal will not be catered by a kosher-certified caterer.
-            The meat will be kosher and will not be served with dairy; however, the kitchen and catering are not kosher certified.
+            Please note that the wedding meal will not be catered by a kosher-certified caterer. The meat will be kosher and will not be served with dairy; however, the kitchen and catering are not kosher certified.
           </p>
 
           <button type="submit">Send Sunday RSVP</button>
@@ -209,13 +273,11 @@
         <p class="form-message" aria-live="polite"></p>
       </form>
     </section>
-
-    <section class="section" id="stay">
+        <section class="section" id="stay">
       <p class="eyebrow">Stay</p>
       <h2>Hotels</h2>
       <p class="section-intro">
-        After scouring London for somewhere special, we have two hotels to recommend.
-        They each offer a very different London experience, but both are wonderfully located and equally convenient for the wedding weekend.
+        After scouring London for somewhere special, we have two hotels to recommend. They each offer a very different London experience, but both are wonderfully located and equally convenient for the wedding weekend.
       </p>
 
       <article class="event-card">
@@ -241,25 +303,22 @@
           For something that celebrates London’s contemporary design scene, we would love to recommend St Clement’s Hotel on the Strand.
         </p>
         <p>
-          One of London’s newest hotels, St Clement’s has been described as the child of Claridge’s and Soho House—making it feel like
-          a rather fitting choice for our wedding weekend.
+          One of London’s newest hotels, St Clement’s has been described as the child of Claridge’s and Soho House—making it feel like a rather fitting choice for our wedding weekend.
         </p>
         <p>
-          We have secured a rate of <strong>£___ per night</strong>.
-          Please contact <strong>Giuseppe</strong> at
+          We have secured a rate of <strong>£___ per night</strong>. Please contact <strong>Giuseppe</strong> at
           <a href="mailto:reservations@stclement.co.uk">reservations@stclement.co.uk</a>
           to reserve a room.
         </p>
-        <p><a href="https://stclement.co.uk/" target="_blank" rel="noopener">Visit St Clement’s Hotel</a></p>
+        <p><a href="#" target="_blank" rel="noopener">Visit St Clement’s Hotel</a></p>
       </article>
     </section>
 
     <section class="section narrow" id="travel">
       <p class="eyebrow">Travel</p>
-      <h2>A practical note</h2>
+      <h2>A note for guests travelling from Europe</h2>
       <p>
-        If you are travelling from Europe, please remember that you may need to apply for a UK Electronic Travel Authorisation (ETA)
-        before travelling.
+        If you are travelling from Europe, please remember that you may need to apply for a UK Electronic Travel Authorisation (ETA) before travelling.
       </p>
       <p><a href="https://www.gov.uk/eta" target="_blank" rel="noopener">Apply for a UK ETA</a></p>
     </section>
@@ -297,7 +356,7 @@
 
     <section class="section narrow">
       <p class="eyebrow">Gifts</p>
-      <h2>With love</h2>
+      <h2>With Love</h2>
       <p>
         Your presence is the greatest gift we could ask for. If you would like to mark the occasion, we would love your
         help towards a piece of artwork that we will enjoy for generations to come—and always think of the wonderful
@@ -365,6 +424,32 @@
         event.preventDefault();
         sendRSVP(form);
       });
+    });
+  </script>
+
+  <script>
+    const WEDDING_PASSWORD = "mazaltov";
+
+    function unlockSite() {
+      document.body.classList.remove("locked");
+      localStorage.setItem("weddingPasswordAccepted", "true");
+    }
+
+    if (localStorage.getItem("weddingPasswordAccepted") === "true") {
+      unlockSite();
+    }
+
+    document.getElementById("password-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const input = document.getElementById("password-input").value.trim().toLowerCase();
+      const error = document.getElementById("password-error");
+
+      if (input === WEDDING_PASSWORD) {
+        unlockSite();
+      } else {
+        error.textContent = "Incorrect password. Please try again.";
+      }
     });
   </script>
 
