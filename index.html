@@ -229,7 +229,7 @@
           </label>
 
           <p class="small-copy">
-            Please note that the wedding meal will not be catered by a kosher-certified caterer. The meat will be kosher and will not be served with dairy; however, the kitchen and catering are not kosher certified.If you eat strictly kosher, please let us know and we will order a kosher certified meal.
+            Please note that the wedding meal will not be catered by a kosher-certified caterer. The meat will be kosher and will not be served with dairy; however, the kitchen and catering are not kosher certified. If you eat strictly kosher, please let us know and we will order a kosher certified meal.
           </p>
 
           <button type="submit">Send Sunday RSVP</button>
@@ -428,18 +428,56 @@
   </script>
 
   <script>
-    const WEDDING_PASSWORD = "mazaltov";
+  const WEDDING_PASSWORD = "mazaltov";
 
-    function unlockSite() {
-      document.body.classList.remove("locked");
-      localStorage.setItem("weddingPasswordAccepted", "true");
+  function setAccessCookie() {
+    const expiry = new Date();
+    expiry.setDate(expiry.getDate() + 30);
+    document.cookie = "weddingAccess=true; expires=" + expiry.toUTCString() + "; path=/; SameSite=Lax";
+  }
+
+  function hasAccessCookie() {
+    return document.cookie.split(";").some(function(cookie) {
+      return cookie.trim() === "weddingAccess=true";
+    });
+  }
+
+  function safelySetLocalStorage() {
+    try {
+      window.localStorage.setItem("weddingPasswordAccepted", "true");
+    } catch (error) {
+      // Some Safari settings block localStorage. Cookie still works.
     }
+  }
 
-    if (localStorage.getItem("weddingPasswordAccepted") === "true") {
-      unlockSite();
+  function safelyGetLocalStorage() {
+    try {
+      return window.localStorage.getItem("weddingPasswordAccepted") === "true";
+    } catch (error) {
+      return false;
     }
+  }
 
-    document.getElementById("password-form").addEventListener("submit", function(event) {
+  function unlockSite() {
+    document.body.classList.remove("locked");
+    setAccessCookie();
+    safelySetLocalStorage();
+  }
+
+  function showPasswordScreen() {
+    document.body.classList.add("locked");
+  }
+
+  if (safelyGetLocalStorage() || hasAccessCookie()) {
+    unlockSite();
+  } else {
+    showPasswordScreen();
+  }
+
+  const passwordForm = document.getElementById("password-form");
+
+  if (passwordForm) {
+    passwordForm.addEventListener("submit", function(event) {
       event.preventDefault();
 
       const input = document.getElementById("password-input").value.trim().toLowerCase();
@@ -451,7 +489,8 @@
         error.textContent = "Incorrect password. Please try again.";
       }
     });
-  </script>
+  }
+</script>
 
 </body>
 </html>
