@@ -475,3 +475,8 @@ li {
 .standalone-form {
   max-width: 680px;
 }
+.form-divider{
+    margin:32px 0;
+    border:none;
+    border-top:1px solid #ddd;
+}
